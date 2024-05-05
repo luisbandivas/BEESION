@@ -188,26 +188,16 @@ const Upload = () => {
             )}
           </div>
           <div className="border rounded-xl p-2 flex-1 max-h-[300px] overflow-auto">
-            <p>
-              Lorem ipsum dolor sit amet consectetur. Dui mattis eu consequat
-              sit a mattis eget enim. Sit morbi lobortis eget neque feugiat
-              eget. Nisi a adipiscing elementum vitae amet neque quis praesent
-              imperdiet.Lorem ipsum dolor sit amet consectetur. Dui mattis eu
-              consequat sit a mattis eget enim. Sit morbi lobortis eget neque
-              feugiat eget. Nisi a adipiscing elementum vitae amet neque quis
-              Lorem ipsum dolor sit amet consectetur. Dui mattis eu consequat
-              sit a mattis eget enim. Sit morbi lobortis eget neque feugiat
-              eget. Nisi a adipiscing elementum vitae amet neque quis praesent
-              imperdiet.Lorem ipsum dolor sit amet consectetur. Dui mattis eu
-              consequat sit a mattis eget enim. Sit morbi lobortis eget neque
-              feugiat eget. Nisi a adipiscing elementum vitae amet neque quis
-              Lorem ipsum dolor sit amet consectetur. Dui mattis eu consequat
-              sit a mattis eget enim. Sit morbi lobortis eget neque feugiat
-              eget. Nisi a adipiscing elementum vitae amet neque quis praesent
-              imperdiet.Lorem ipsum dolor sit amet consectetur. Dui mattis eu
-              consequat sit a mattis eget enim. Sit morbi lobortis eget neque
-              feugiat eget. Nisi a adipiscing elementum vitae amet neque quis
-            </p>
+            {prediction && (
+              <div>
+                <h2 className="text-lg font-semibold mb-2">
+                  {prediction.class} Pest Removal Tips for Farms
+                </h2>
+                <p>
+                  <span>{prediction.response}</span>
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </div>

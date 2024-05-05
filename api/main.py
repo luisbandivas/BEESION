@@ -7,6 +7,37 @@ import numpy as np
 from io import BytesIO
 from PIL import Image
 import tensorflow as tf
+import google.generativeai as genai
+
+genai.configure(api_key="AIzaSyA41OEWAvMFIi-h3jAn_h7jKOSuSBiBuHc")
+
+# Set up the model
+generation_config = {
+  "temperature": 1,
+  "top_p": 0.95,
+  "top_k": 0,
+  "max_output_tokens": 3000,
+}
+
+safety_settings = [
+  {
+    "category": "HARM_CATEGORY_HARASSMENT",
+    "threshold": "BLOCK_MEDIUM_AND_ABOVE"
+  },
+  {
+    "category": "HARM_CATEGORY_HATE_SPEECH",
+    "threshold": "BLOCK_MEDIUM_AND_ABOVE"
+  },
+  {
+    "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+    "threshold": "BLOCK_MEDIUM_AND_ABOVE"
+  },
+  {
+    "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+    "threshold": "BLOCK_NONE"
+  },
+]
+
 
 app = FastAPI()
 
@@ -40,7 +71,7 @@ def read_file_as_image(data) -> np.ndarray:
 
 @app.post("/predict")
 async def predict(
-        file: UploadFile = File(...)
+    file: UploadFile = File(...)
 ):
     image = read_file_as_image(await file.read())
     img_batch = np.expand_dims(image, 0)
@@ -49,9 +80,18 @@ async def predict(
 
     predicted_class = CLASS_NAMES[np.argmax(predictions[0])]
     confidence = np.max(predictions[0])
+    
+    model = genai.GenerativeModel(model_name="gemini-1.5-pro-latest",
+                                  generation_config=generation_config,
+                                  safety_settings=safety_settings)
+    convo = model.start_chat(history=[])
+    response = convo.send_message(f"Give tips on how to remove {predicted_class} pest in farm (IN BULLET FORM)")
+    print(response.text)
+    
     return {
         'class': predicted_class,
-        'confidence': float(confidence)
+        'confidence': float(confidence),
+        'response': response.text
     }
 
 if __name__ == "__main__":
