@@ -1,5 +1,5 @@
 #api_key = AIzaSyAXlXjrQC0-RmZM2Xh0qudpiJXEr83Dj-w
-
+import re
 from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
@@ -37,7 +37,6 @@ safety_settings = [
     "threshold": "BLOCK_NONE"
   },
 ]
-
 
 app = FastAPI()
 
@@ -85,14 +84,17 @@ async def predict(
                                   generation_config=generation_config,
                                   safety_settings=safety_settings)
     convo = model.start_chat(history=[])
-    response = convo.send_message(f"Give tips on how to remove {predicted_class} pest in farm (IN BULLET FORM)")
+    response = convo.send_message(f"Give information about {predicted_class} and how to remove it to a farm")
     print(response.text)
+    
+    clean_text = re.sub(r'[*#]', ' ', response.text)
+    print(clean_text)
     
     return {
         'class': predicted_class,
         'confidence': float(confidence),
-        'response': response.text
+        'response': clean_text
     }
-
+    
 if __name__ == "__main__":
     uvicorn.run(app, host='localhost', port=8000)

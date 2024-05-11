@@ -28,12 +28,12 @@ const Info = () => {
                      md:flex-row"
         >
           <div
-            className="bg-red-700 h-[550px] rounded-xl 
+            className="bg-gray-400 h-[550px] rounded-xl 
                        sm:mb-4 p-6
                        md:flex-1"
           ></div>
           <div
-            className="bg-blue-700 h-[550px] rounded-xl 
+            className="bg-gray-400 h-[550px] rounded-xl 
                        sm:mb-4 p-6
                        md:flex-1 md:ml-4"
           ></div>

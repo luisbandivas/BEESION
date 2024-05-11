@@ -1,5 +1,7 @@
-import React, { useState } from "react";
-import rct from "../img/r1.png";
+import React, { useState, useEffect } from "react";
+import play from "../img/Icons/Play.png";
+import pause from "../img/Icons/Pause.png";
+import stop from "../img/Icons/Stop.png";
 
 const Upload = () => {
   const [file, setFile] = useState(null);
@@ -40,11 +42,73 @@ const Upload = () => {
     }
   };
 
+  const handleImageClick = async (imageUrl) => {
+    try {
+      const response = await fetch(imageUrl);
+      if (!response.ok) {
+        throw new Error("Failed to fetch image");
+      }
+      const blob = await response.blob();
+      setFile(blob);
+      uploadImage(blob);
+    } catch (error) {
+      console.error("Error occurred while uploading image:", error);
+    }
+  };
+
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [speech, setSpeech] = useState(null);
+
+  const startTextToSpeech = () => {
+    const text = prediction.response;
+    const speech = new SpeechSynthesisUtterance(text);
+    setSpeech(speech);
+    setIsPlaying(true);
+  };
+
+  const pauseTextToSpeech = () => {
+    speechSynthesis.pause();
+    setIsPlaying(false);
+  };
+
+  const resumeTextToSpeech = () => {
+    speechSynthesis.resume();
+    setIsPlaying(true);
+  };
+
+  const stopTextToSpeech = () => {
+    speechSynthesis.cancel();
+    setIsPlaying(false);
+    setSpeech(null);
+  };
+
+  const toggleTextToSpeech = () => {
+    if (isPlaying) {
+      pauseTextToSpeech();
+    } else {
+      if (speech) {
+        resumeTextToSpeech();
+      } else {
+        startTextToSpeech();
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (speech) {
+      speech.onend = () => {
+        setIsPlaying(false);
+        setSpeech(null);
+      };
+      speechSynthesis.speak(speech);
+    }
+  }, [speech]);
+
   return (
     <>
       <div
         className="sm:px-5 sm:flex sm:justify-center sm:items-center sm:flex-col
-                   py-16 bg-[#F4C004]
+                   py-16 bg-yellow-200
                    lg:flex-row lg:items-start lg:px-8"
       >
         <div
@@ -154,11 +218,43 @@ const Upload = () => {
             <p className="text-center text-gray-800 font-medium pb-2">
               No image? Try one of these:
             </p>
-            <div className="flex flex-row justify-center px-20">
-              <img src={rct} alt="" className="h-16 w-16 rounded-xl" />
-              <img src={rct} alt="" className="h-16 w-16 rounded-xl" />
-              <img src={rct} alt="" className="h-16 w-16 rounded-xl" />
-              <img src={rct} alt="" className="h-16 w-16 rounded-xl" />
+            <div className="flex flex-row justify-center">
+              <img
+                src="https://media.istockphoto.com/id/1369810739/photo/jaguar-panthera-onca-close-up.jpg?s=612x612&w=0&k=20&c=GjZROw9ku2JyyOoOaBm95fgeZK-GmeBe6Z_ee-atiHo="
+                className="h-16 w-16 rounded-xl cursor-pointer ml-2"
+                onClick={() =>
+                  handleImageClick(
+                    "https://media.istockphoto.com/id/1369810739/photo/jaguar-panthera-onca-close-up.jpg?s=612x612&w=0&k=20&c=GjZROw9ku2JyyOoOaBm95fgeZK-GmeBe6Z_ee-atiHo=",
+                  )
+                }
+              />
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROo81RNQgcSt95A1sz_Enpa9gWFUwEyuXcfggNafthUg&s"
+                className="h-16 w-16 rounded-xl cursor-pointer ml-2"
+                onClick={() =>
+                  handleImageClick(
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROo81RNQgcSt95A1sz_Enpa9gWFUwEyuXcfggNafthUg&s",
+                  )
+                }
+              />
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7C5v6_6c0sAmSfBsc7Z3pBHdPnTVpqTh-fRtJWs1Ks6B-Y_HwuO3gRGbmHb0xC38-fAU&usqp=CAU"
+                className="h-16 w-16 rounded-xl cursor-pointer ml-2"
+                onClick={() =>
+                  handleImageClick(
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7C5v6_6c0sAmSfBsc7Z3pBHdPnTVpqTh-fRtJWs1Ks6B-Y_HwuO3gRGbmHb0xC38-fAU&usqp=CAU",
+                  )
+                }
+              />
+              <img
+                src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvZnJwYW50aGVyYV90aWdyaXNfYWx0YWljYV90aWdlcl8wLWltYWdlLWt6eGx2YzYyLmpwZw.jpg"
+                className="h-16 w-16 rounded-xl cursor-pointer ml-2"
+                onClick={() =>
+                  handleImageClick(
+                    "https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvZnJwYW50aGVyYV90aWdyaXNfYWx0YWljYV90aWdlcl8wLWltYWdlLWt6eGx2YzYyLmpwZw.jpg",
+                  )
+                }
+              />
             </div>
           </div>
         </div>
@@ -175,27 +271,47 @@ const Upload = () => {
               src={prediction ? URL.createObjectURL(file) : ""}
               className="w-[200px] h-[220px] mb-3 rounded-xl"
             />
-            {prediction && (
-              <p
-                className="flex flex-col font-medium text-[1.2rem]
+            <div>
+              {prediction && (
+                <p
+                  className="flex flex-col font-medium text-[1.2rem]
                            lg:ml-4"
-              >
-                <span>Class: {prediction.class}</span>
-                <span>
-                  Confidence: {Math.round(prediction.confidence * 100)}%
-                </span>
-              </p>
-            )}
+                >
+                  <span>Class: {prediction.class}</span>
+                  <span>
+                    Confidence: {Math.round(prediction.confidence * 100)}%
+                  </span>
+                </p>
+              )}
+              <div className="flex flex-row mt-4 lg:ml-4">
+                <button
+                  className={`p-3 rounded-full ${isPlaying ? "bg-blue-300" : "bg-green-300"}`}
+                  onClick={toggleTextToSpeech}
+                >
+                  {isPlaying ? (
+                    <img src={pause} className="h-3 w-3" />
+                  ) : (
+                    <img src={play} className="h-3 w-3" />
+                  )}
+                </button>
+                {isPlaying && (
+                  <button
+                    className="p-3 rounded-full bg-red-300 ml-2"
+                    onClick={stopTextToSpeech}
+                  >
+                    <img src={stop} className="h-3 w-3" />
+                  </button>
+                )}
+              </div>
+            </div>
           </div>
-          <div className="border rounded-xl p-2 flex-1 max-h-[300px] overflow-auto">
+          <div className="border rounded-xl p-2 flex-1 max-h-[330px] overflow-auto">
             {prediction && (
               <div>
                 <h2 className="text-lg font-semibold mb-2">
                   {prediction.class} Pest Removal Tips for Farms
                 </h2>
-                <p>
-                  <span>{prediction.response}</span>
-                </p>
+                <p className="whitespace-pre-wrap">{prediction.response}</p>
               </div>
             )}
           </div>
