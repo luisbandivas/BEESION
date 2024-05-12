@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import play from "../img/Icons/Play.png";
 import pause from "../img/Icons/Pause.png";
 import stop from "../img/Icons/Stop.png";
+import { TailSpin } from "react-loader-spinner";
 
 const Upload = () => {
   const [file, setFile] = useState(null);
@@ -284,6 +285,7 @@ const Upload = () => {
                 </p>
               )}
               <div className="flex flex-row mt-4 lg:ml-4">
+                <h2>Try our tts</h2>
                 <button
                   className={`p-3 rounded-full ${isPlaying ? "bg-blue-300" : "bg-green-300"}`}
                   onClick={toggleTextToSpeech}

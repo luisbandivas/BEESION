@@ -11,7 +11,6 @@ import google.generativeai as genai
 
 genai.configure(api_key="AIzaSyA41OEWAvMFIi-h3jAn_h7jKOSuSBiBuHc")
 
-# Set up the model
 generation_config = {
   "temperature": 1,
   "top_p": 0.95,
@@ -43,7 +42,7 @@ app = FastAPI()
 origins = [
     "http://localhost",
     "http://localhost:3000",
-    "http://localhost:5173",  # Add your React app's URL here
+    "http://localhost:5173",
 ]
 app.add_middleware(
     CORSMiddleware,
