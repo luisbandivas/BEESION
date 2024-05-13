@@ -1,4 +1,5 @@
 import React from "react";
+import { TailSpin } from "react-loader-spinner";
 
 const Info = () => {
   return (
@@ -12,11 +13,11 @@ const Info = () => {
                      sm:flex-col
                      md:flex-row"
         >
-          <h1 className="text-[2rem] font-bold">
+          <h1 className="text-[2rem] font-bold font-Helvetica">
             Lorem ipsum dolor sit amet. Facilisi mollis ut tellus aliquam
             pellentesque.
           </h1>
-          <p>
+          <p className="font-Poppins">
             Lorem ipsum dolor sit amet consectetur. Dui mattis eu consequat sit
             a mattis eget enim. Sit morbi lobortis eget neque feugiat eget. Nisi
             a adipiscing elementum vitae amet neque quis praesent imperdiet.

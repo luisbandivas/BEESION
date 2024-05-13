@@ -5,6 +5,7 @@ import stop from "../img/Icons/Stop.png";
 import { TailSpin } from "react-loader-spinner";
 
 const Upload = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [file, setFile] = useState(null);
   const [prediction, setPrediction] = useState(null);
 
@@ -23,6 +24,8 @@ const Upload = () => {
   };
 
   const uploadImage = async (image) => {
+    setIsLoading(true);
+
     const formData = new FormData();
     formData.append("file", image);
 
@@ -40,6 +43,8 @@ const Upload = () => {
       }
     } catch (error) {
       console.error("Error occurred while uploading image:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -118,13 +123,13 @@ const Upload = () => {
         >
           <div>
             <h1
-              className="sm:text-center font-bold text-[2.5rem]
+              className="font-Helvetica sm:text-center font-bold text-[2.5rem]
                          lg:text-start"
             >
               Discover and Learn:
             </h1>
             <p
-              className="sm:text-center
+              className="font-Poppins sm:text-center
                          lg:text-start"
             >
               Upload an image of an insect to identify and explore.
@@ -259,65 +264,86 @@ const Upload = () => {
             </div>
           </div>
         </div>
-        <div
-          className="w-[550px] h-auto bg-white mt-6 rounded-xl p-5 flex flex-row shadow-md
+        {isLoading && (
+          <div
+            className="flex justify-center items-center w-[550px] h-[560px] bg-white mt-6 rounded-xl shadow-md
+                       lg:mt-0"
+          >
+            <TailSpin
+              visible={true}
+              height="300"
+              width="300"
+              color="#4fa94d"
+              ariaLabel="tail-spin-loading"
+              radius="1"
+              wrapperStyle={{}}
+              wrapperClass=""
+            />
+          </div>
+        )}
+        {prediction && (
+          <div
+            className="w-[550px] h-auto bg-white mt-6 rounded-xl p-5 flex flex-row shadow-md
                      lg:flex-col lg:h-[550px] lg:mt-0
                      xl:h-[560px]"
-        >
-          <div
-            className="flex-1
-                       lg:flex lg:flex-row"
           >
-            <img
-              src={prediction ? URL.createObjectURL(file) : ""}
-              className="w-[200px] h-[220px] mb-3 rounded-xl"
-            />
-            <div>
-              {prediction && (
-                <p
-                  className="flex flex-col font-medium text-[1.2rem]
+            <div
+              className="flex-1
+                       lg:flex lg:flex-row"
+            >
+              <img
+                src={prediction ? URL.createObjectURL(file) : ""}
+                className="w-[200px] h-[220px] mb-3 rounded-xl"
+              />
+              <div>
+                {prediction && (
+                  <p
+                    className="flex flex-col font-medium text-[1.2rem]
                            lg:ml-4"
-                >
-                  <span>Class: {prediction.class}</span>
-                  <span>
-                    Confidence: {Math.round(prediction.confidence * 100)}%
-                  </span>
-                </p>
-              )}
-              <div className="flex flex-row mt-4 lg:ml-4">
-                <h2>Try our tts</h2>
-                <button
-                  className={`p-3 rounded-full ${isPlaying ? "bg-blue-300" : "bg-green-300"}`}
-                  onClick={toggleTextToSpeech}
-                >
-                  {isPlaying ? (
-                    <img src={pause} className="h-3 w-3" />
-                  ) : (
-                    <img src={play} className="h-3 w-3" />
-                  )}
-                </button>
-                {isPlaying && (
-                  <button
-                    className="p-3 rounded-full bg-red-300 ml-2"
-                    onClick={stopTextToSpeech}
                   >
-                    <img src={stop} className="h-3 w-3" />
-                  </button>
+                    <span>Class: {prediction.class}</span>
+                    <span>
+                      Confidence: {Math.round(prediction.confidence * 100)}%
+                    </span>
+                  </p>
                 )}
+                <div className="flex flex-col mt-4 lg:ml-4">
+                  <h2>Try our tts</h2>
+                  <div className="flex flex-row mt-2">
+                    <button
+                      className={`p-3 rounded-full ${isPlaying ? "bg-blue-300" : "bg-green-300"}`}
+                      onClick={toggleTextToSpeech}
+                    >
+                      {isPlaying ? (
+                        <img src={pause} className="h-3 w-3" />
+                      ) : (
+                        <img src={play} className="h-3 w-3" />
+                      )}
+                    </button>
+                    {isPlaying && (
+                      <button
+                        className="p-3 rounded-full bg-red-300 ml-2"
+                        onClick={stopTextToSpeech}
+                      >
+                        <img src={stop} className="h-3 w-3" />
+                      </button>
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
+            <div className="border rounded-xl p-2 flex-1 max-h-[330px] overflow-auto">
+              {prediction && (
+                <div>
+                  <h2 className="text-lg font-semibold mb-2">
+                    {prediction.class} Pest Removal Tips for Farms
+                  </h2>
+                  <p className="whitespace-pre-wrap">{prediction.response}</p>
+                </div>
+              )}
+            </div>
           </div>
-          <div className="border rounded-xl p-2 flex-1 max-h-[330px] overflow-auto">
-            {prediction && (
-              <div>
-                <h2 className="text-lg font-semibold mb-2">
-                  {prediction.class} Pest Removal Tips for Farms
-                </h2>
-                <p className="whitespace-pre-wrap">{prediction.response}</p>
-              </div>
-            )}
-          </div>
-        </div>
+        )}
       </div>
     </>
   );
