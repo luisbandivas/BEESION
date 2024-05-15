@@ -125,7 +125,7 @@ const Upload = () => {
         >
           <div>
             <h1
-              className="text-[#F4DDBE] font-Poppins sm:text-center font-extrabold text-[3rem]
+              className="text-[#F4DDBE] font-Coiny sm:text-center text-[3rem]
                          lg:text-start"
             >
               Discover and Learn:
@@ -228,7 +228,7 @@ const Upload = () => {
             </p>
             <div className="flex flex-row justify-center">
               <img
-                src="https://media.istockphoto.com/id/1369810739/photo/jaguar-panthera-onca-close-up.jpg?s=612x612&w=0&k=20&c=GjZROw9ku2JyyOoOaBm95fgeZK-GmeBe6Z_ee-atiHo="
+                src="https://i.cbc.ca/1.3624693.1693940160!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_780/yellow-jacket.jpg"
                 className="h-16 w-16 rounded-xl cursor-pointer ml-2"
                 onClick={() =>
                   handleImageClick(
@@ -237,7 +237,7 @@ const Upload = () => {
                 }
               />
               <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROo81RNQgcSt95A1sz_Enpa9gWFUwEyuXcfggNafthUg&s"
+                src="https://cdn.britannica.com/18/124718-050-1A9CD508/eardrums-legs-Crickets-sides-bodies-breathing-holes.jpg"
                 className="h-16 w-16 rounded-xl cursor-pointer ml-2"
                 onClick={() =>
                   handleImageClick(
@@ -246,7 +246,7 @@ const Upload = () => {
                 }
               />
               <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7C5v6_6c0sAmSfBsc7Z3pBHdPnTVpqTh-fRtJWs1Ks6B-Y_HwuO3gRGbmHb0xC38-fAU&usqp=CAU"
+                src="https://emoyer.com/wp-content/uploads/2023/01/mice-library.jpg"
                 className="h-16 w-16 rounded-xl cursor-pointer ml-2"
                 onClick={() =>
                   handleImageClick(
@@ -255,7 +255,7 @@ const Upload = () => {
                 }
               />
               <img
-                src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvZnJwYW50aGVyYV90aWdyaXNfYWx0YWljYV90aWdlcl8wLWltYWdlLWt6eGx2YzYyLmpwZw.jpg"
+                src="https://www.adamspetcare.com/-/media/project/oneweb/adams/images/photos/blog/article/earwigs.jpg"
                 className="h-16 w-16 rounded-xl cursor-pointer ml-2"
                 onClick={() =>
                   handleImageClick(

@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Coiny&family=Shrikhand&family=Titan+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Shrikhand&family=Titan+One&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

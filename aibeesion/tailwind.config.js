@@ -5,6 +5,8 @@ export default {
     extend: {},
     fontFamily: {
       Poppins: ["Poppins", "sans-serif"],
+      Coiny: ["Coiny"],
+      Shrikhand: ["Shrikhand"],
     },
     screens: {
       sm: "640px",

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import img from "../assets/fotd_img/BIG_IMAGE.png";
+import img from "../assets/fotd_img/slug.png";
 import {
   GoogleGenerativeAI,
   HarmCategory,
@@ -24,6 +24,7 @@ const FOTD = () => {
 
     const words = [
       "Ants",
+      "Slug",
       "Aphids",
       "Bees",
       "Beetle",
@@ -34,7 +35,6 @@ const FOTD = () => {
       "Mealybug",
       "Moth",
       "Rats",
-      "Slug",
       "Snail",
       "Wasp",
       "Weevil",
@@ -144,24 +144,29 @@ const FOTD = () => {
   return (
     <>
       {showFirst ? (
-        <div>
+        <div className="px-4">
           <img
             src={imageSrc}
             alt={word}
-            className="w-full bg-white h-[300px] rounded-xl mb-4 md:h-52 lg:h-[250px] xl:h-[300px]"
+            className="shadow-xl w-full bg-white h-[300px] rounded-xl mb-4 md:h-52 lg:h-[250px] xl:h-[300px]"
           />
+
           <label>
             <h2 className="font-semibold text-xl mb-2">{word}</h2>
-            <p className="whitespace-pre-wrap">
-              Ants are social insects that belong to the family Formicidae. They
-              are found all over the world, except for Antarctica, and play a
-              vital role in their ecosystems.
+            <p
+              className="whitespace-pre-wrap h-16
+                         md:h-40
+                         lg:h-28
+                         xl:h-16"
+            >
+              Slug, or land slug, is a common name for any apparently shell-less
+              terrestrial gastropod mollusc.
             </p>
           </label>
         </div>
       ) : (
         <div
-          className="w-full h-[415px] border rounded-lg overflow-auto p-4
+          className="w-full h-[415px] shadow-inner rounded-lg overflow-auto p-4
                      md:h-[405px]
                      xl:mt-4 xl:mb-2"
         >
@@ -169,9 +174,9 @@ const FOTD = () => {
         </div>
       )}
       {showFirst ? (
-        <div className="h-14 relative md:h-28 lg:h-24 xl:h-14">
+        <div className="h-14 relative xl:mt-2">
           <button
-            className="py-2 bg-orange-300 px-6 absolute bottom-0 right-0 mb-3 rounded-full"
+            className="py-2 bg-orange-300 px-6 absolute bottom-0 right-0 mb-5 rounded-full text-sm font-semibold"
             onClick={handleLearnMoreClick}
           >
             LEARN MORE
@@ -180,7 +185,7 @@ const FOTD = () => {
       ) : (
         <div className="h-16 relative md:h-16 lg:h-16">
           <button
-            className="py-2 bg-orange-300 px-6 absolute bottom-0 left-0 mb-3 rounded-full"
+            className="py-2 bg-orange-300 px-6 absolute bottom-0 left-0 mb-3 rounded-full text-sm font-semibold"
             onClick={handleGoBackClick}
           >
             GO BACK
