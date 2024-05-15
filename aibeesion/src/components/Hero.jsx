@@ -1,13 +1,12 @@
 import Marquee from "react-fast-marquee";
 import rct from "../assets/react.svg";
-
 import img1 from "../img/b1.png";
 
 const Hero = () => {
   return (
     <>
-      <div className="">
-        <div className="flex justify-center pt-5 bg-slate-500">
+      <div>
+        <div className="flex justify-center py-5">
           <img src={rct} className="" />
         </div>
         <Marquee speed={15}>

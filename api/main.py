@@ -1,4 +1,3 @@
-#api_key = AIzaSyAXlXjrQC0-RmZM2Xh0qudpiJXEr83Dj-w
 import re
 from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
@@ -52,12 +51,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-MODEL = tf.keras.models.load_model("./save_model/1.keras")
+MODEL = tf.keras.models.load_model("./save_model/model_v2.keras")
 
 
-#CLASS_NAMES = ['ants', 'bees', 'beetle', 'catterpillar', 'earthworms', 'earwig', 'grasshopper', 'moth', 'slug', 'snail', 'wasp', 'weevil']
-CLASS_NAMES = ['Cheetah', 'Jaguar', 'Leopard', 'Lion', 'Tiger']
-
+CLASS_NAMES = ['Ants','Aphids','Bees','Beetle','Catterpillar','Earthworms','Earwig','Grasshopper','Mealybug','Moth','Rats','Slug','Snail','Wasp','Weevil']
 
 @app.get("/ping")
 async def ping():
@@ -84,15 +81,13 @@ async def predict(
                                   safety_settings=safety_settings)
     convo = model.start_chat(history=[])
     response = convo.send_message(f"Give information about {predicted_class} and how to remove it to a farm")
-    print(response.text)
-    
-    clean_text = re.sub(r'[*#]', ' ', response.text)
-    print(clean_text)
-    
+    response2 = convo.send_message(f"remove pointers, number, and bullet, asterisk {response}")
+    print(response2.text)
+
     return {
         'class': predicted_class,
         'confidence': float(confidence),
-        'response': clean_text
+        'response': str(response2.text)
     }
     
 if __name__ == "__main__":

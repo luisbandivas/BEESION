@@ -1,27 +1,40 @@
 import React from "react";
-import { TailSpin } from "react-loader-spinner";
+import FOTD from "../components/FOTD";
 
 const Info = () => {
+  const DateToday = new Date().toDateString();
   return (
     <>
       <div
-        className="sm:px-5
+        className="px-5 
                    md:px-8"
       >
         <div
           className="flex py-20
                      sm:flex-col
-                     md:flex-row"
+                     lg:flex-row"
         >
-          <h1 className="text-[2rem] font-bold font-Helvetica">
-            Lorem ipsum dolor sit amet. Facilisi mollis ut tellus aliquam
-            pellentesque.
-          </h1>
-          <p className="font-Poppins">
-            Lorem ipsum dolor sit amet consectetur. Dui mattis eu consequat sit
-            a mattis eget enim. Sit morbi lobortis eget neque feugiat eget. Nisi
-            a adipiscing elementum vitae amet neque quis praesent imperdiet.
-          </p>
+          <div
+            className="w-full h-auto mb-4 text-center 
+                       lg:text-left
+                       xl:w-2/3 mr-5"
+          >
+            <h1 className="text-[2.7rem] font-extrabold font-Poppins">
+              Take Control of Your Farm's Health with Precision Pest Recognition
+            </h1>
+          </div>
+          <div
+            className="w-full h-auto text-center
+                       lg:text-left
+                       xl:w-[730px]"
+          >
+            <p className="text-xl font-thin">
+              Take control of your farm's health with our cutting-edge pest
+              recognition technology. Quickly identify pests threatening your
+              crops and make informed decisions to safeguard your harvest.
+              Experience hassle-free crop protection today.
+            </p>
+          </div>
         </div>
         <div
           className="flex
@@ -29,15 +42,31 @@ const Info = () => {
                      md:flex-row"
         >
           <div
-            className="bg-gray-400 h-[550px] rounded-xl 
+            className="bg-[#B5C0D0] h-[550px] rounded-xl 
                        sm:mb-4 p-6
                        md:flex-1"
           ></div>
           <div
-            className="bg-gray-400 h-[550px] rounded-xl 
+            className="bg-[#EED3D9] h-[550px] rounded-xl 
                        sm:mb-4 p-6
-                       md:flex-1 md:ml-4"
-          ></div>
+                       md:flex-1 md:ml-4
+                       xl:px-8 xl:py-4"
+          >
+            <label
+              className="flex flex-row justify-between mb-2
+                         md:mb-4
+                         xl:mb-2"
+            >
+              <h1
+                className="text-3xl font-Poppins font-black 
+                     "
+              >
+                Daily Facts!
+              </h1>
+              <p className="font-light">{DateToday}</p>
+            </label>
+            <FOTD />
+          </div>
         </div>
       </div>
     </>

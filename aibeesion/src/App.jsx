@@ -2,11 +2,10 @@ import { useState } from "react";
 import Hero from "./components/Hero";
 import Infopage from "./pages/Info";
 import Upload from "./pages/Upload";
-import Burat from "./pages/burat";
 
 function App() {
   return (
-    <div>
+    <div className="bg-[#fffbf4] text-[#212529] font-Poppins">
       <Hero />
       <Infopage />
       <Upload />

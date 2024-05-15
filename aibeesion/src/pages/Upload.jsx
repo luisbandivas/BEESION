@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import play from "../img/Icons/Play.png";
-import pause from "../img/Icons/Pause.png";
-import stop from "../img/Icons/Stop.png";
+import play from "../assets/Icons/Play.png";
+import pause from "../assets/Icons/Pause.png";
+import stop from "../assets/Icons/Stop.png";
+
 import { TailSpin } from "react-loader-spinner";
 
 const Upload = () => {
@@ -21,6 +22,7 @@ const Upload = () => {
   const handleClear = () => {
     setFile(null);
     setPrediction(null);
+    stopTextToSpeech();
   };
 
   const uploadImage = async (image) => {
@@ -114,7 +116,7 @@ const Upload = () => {
     <>
       <div
         className="sm:px-5 sm:flex sm:justify-center sm:items-center sm:flex-col
-                   py-16 bg-yellow-200
+                   py-16 bg-[#8D9876]
                    lg:flex-row lg:items-start lg:px-8"
       >
         <div
@@ -123,13 +125,13 @@ const Upload = () => {
         >
           <div>
             <h1
-              className="font-Helvetica sm:text-center font-bold text-[2.5rem]
+              className="text-[#F4DDBE] font-Poppins sm:text-center font-extrabold text-[3rem]
                          lg:text-start"
             >
               Discover and Learn:
             </h1>
             <p
-              className="font-Poppins sm:text-center
+              className="sm:text-center
                          lg:text-start"
             >
               Upload an image of an insect to identify and explore.
