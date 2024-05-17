@@ -1,5 +1,20 @@
 import React, { useState, useEffect } from "react";
-import img from "../assets/fotd_img/slug.png";
+import ants from "../assets/fotd_img/ants.png";
+import aphids from "../assets/fotd_img/aphids.png";
+import beetles from "../assets/fotd_img/beetles.png";
+import bees from "../assets/fotd_img/bees.png";
+import caterpillar from "../assets/fotd_img/caterpillar.png";
+import earthworm from "../assets/fotd_img/earthworm.png";
+import grasshopper from "../assets/fotd_img/grasshopper.png";
+import mealybugs from "../assets/fotd_img/mealybugs.png";
+import slug from "../assets/fotd_img/slug.png";
+import snail from "../assets/fotd_img/snail.png";
+import wasp from "../assets/fotd_img/wasp.png";
+import earwig from "../assets/fotd_img/earwig.png";
+import weevil from "../assets/fotd_img/weevil.png";
+import moth from "../assets/fotd_img/moth.png";
+import rat from "../assets/fotd_img/rat.png";
+
 import {
   GoogleGenerativeAI,
   HarmCategory,
@@ -11,6 +26,7 @@ const FOTD = () => {
   const [imageSrc, setImageSrc] = useState("");
   const [chatSession, setChatSession] = useState(null);
   const [response, setResponse] = useState("");
+  const [wit, setWit] = useState("");
   const [showFirst, setShowFirst] = useState(true);
 
   useEffect(() => {
@@ -41,21 +57,21 @@ const FOTD = () => {
     ];
 
     const images = {
-      Ants: img,
-      Aphids: img,
-      Bees: img,
-      Beetle: img,
-      Catterpillar: img,
-      Earthworms: img,
-      Earwig: img,
-      Grasshopper: img,
-      Mealybug: img,
-      Moth: img,
-      Rats: img,
-      Slug: img,
-      Snail: img,
-      Wasp: img,
-      Weevil: img,
+      Ants: ants,
+      Aphids: aphids,
+      Bees: bees,
+      Beetle: beetles,
+      Catterpillar: caterpillar,
+      Earthworms: earthworm,
+      Earwig: earwig,
+      Grasshopper: grasshopper,
+      Mealybug: mealybugs,
+      Moth: moth,
+      Rats: rat,
+      Slug: slug,
+      Snail: snail,
+      Wasp: wasp,
+      Weevil: weevil,
     };
 
     const todayDate = getTodayDate();
@@ -127,7 +143,11 @@ const FOTD = () => {
       const result = await chatSession.sendMessage(
         `Give at least 10 facts about ${word} (remove pointers, hashtag, and bullet, asterisk)`,
       );
+      const whatis = await chatSession.sendMessage(
+        `What is ${word}? (one sentence answer only)`,
+      );
       setResponse(result.response.text());
+      setWit(whatis.response.text());
     };
 
     sendMessageOnLoad();
@@ -159,8 +179,7 @@ const FOTD = () => {
                          lg:h-28
                          xl:h-16"
             >
-              Slug, or land slug, is a common name for any apparently shell-less
-              terrestrial gastropod mollusc.
+              {wit}
             </p>
           </label>
         </div>

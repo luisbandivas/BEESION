@@ -21,6 +21,7 @@ const Upload = () => {
 
   const handleClear = () => {
     setFile(null);
+    setIsLoading(false);
     setPrediction(null);
     stopTextToSpeech();
   };
@@ -216,55 +217,57 @@ const Upload = () => {
               )}
             </div>
           </div>
-          <div
-            className="hidden
+          {!file && (
+            <div
+              className="hidden
                        sm:hidden
                        md:hidden
                        lg:h-auto lg:pt-5 lg:block
                        xl:block"
-          >
-            <p className="text-center text-gray-800 font-medium pb-2">
-              No image? Try one of these:
-            </p>
-            <div className="flex flex-row justify-center">
-              <img
-                src="https://i.cbc.ca/1.3624693.1693940160!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_780/yellow-jacket.jpg"
-                className="h-16 w-16 rounded-xl cursor-pointer ml-2"
-                onClick={() =>
-                  handleImageClick(
-                    "https://media.istockphoto.com/id/1369810739/photo/jaguar-panthera-onca-close-up.jpg?s=612x612&w=0&k=20&c=GjZROw9ku2JyyOoOaBm95fgeZK-GmeBe6Z_ee-atiHo=",
-                  )
-                }
-              />
-              <img
-                src="https://cdn.britannica.com/18/124718-050-1A9CD508/eardrums-legs-Crickets-sides-bodies-breathing-holes.jpg"
-                className="h-16 w-16 rounded-xl cursor-pointer ml-2"
-                onClick={() =>
-                  handleImageClick(
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROo81RNQgcSt95A1sz_Enpa9gWFUwEyuXcfggNafthUg&s",
-                  )
-                }
-              />
-              <img
-                src="https://emoyer.com/wp-content/uploads/2023/01/mice-library.jpg"
-                className="h-16 w-16 rounded-xl cursor-pointer ml-2"
-                onClick={() =>
-                  handleImageClick(
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7C5v6_6c0sAmSfBsc7Z3pBHdPnTVpqTh-fRtJWs1Ks6B-Y_HwuO3gRGbmHb0xC38-fAU&usqp=CAU",
-                  )
-                }
-              />
-              <img
-                src="https://www.adamspetcare.com/-/media/project/oneweb/adams/images/photos/blog/article/earwigs.jpg"
-                className="h-16 w-16 rounded-xl cursor-pointer ml-2"
-                onClick={() =>
-                  handleImageClick(
-                    "https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvZnJwYW50aGVyYV90aWdyaXNfYWx0YWljYV90aWdlcl8wLWltYWdlLWt6eGx2YzYyLmpwZw.jpg",
-                  )
-                }
-              />
+            >
+              <p className="text-center text-gray-800 font-medium pb-2">
+                No image? Try one of these:
+              </p>
+              <div className="flex flex-row justify-center">
+                <img
+                  src="https://emoyer.com/wp-content/uploads/2023/01/ants-library.jpg"
+                  className="h-16 w-16 rounded-xl cursor-pointer ml-2"
+                  onClick={() =>
+                    handleImageClick(
+                      "https://emoyer.com/wp-content/uploads/2023/01/ants-library.jpg",
+                    )
+                  }
+                />
+                <img
+                  src="https://emoyer.com/wp-content/uploads/2022/11/moyer-Full-Truth-About-Earwigs-Crawling-hero.jpg"
+                  className="h-16 w-16 rounded-xl cursor-pointer ml-2"
+                  onClick={() =>
+                    handleImageClick(
+                      "https://emoyer.com/wp-content/uploads/2022/11/moyer-Full-Truth-About-Earwigs-Crawling-hero.jpg",
+                    )
+                  }
+                />
+                <img
+                  src="https://emoyer.com/wp-content/uploads/2023/01/mice-library.jpg"
+                  className="h-16 w-16 rounded-xl cursor-pointer ml-2"
+                  onClick={() =>
+                    handleImageClick(
+                      "https://emoyer.com/wp-content/uploads/2023/01/mice-library.jpg",
+                    )
+                  }
+                />
+                <img
+                  src="https://emoyer.com/wp-content/uploads/2023/01/bees-library-honey.jpg"
+                  className="h-16 w-16 rounded-xl cursor-pointer ml-2"
+                  onClick={() =>
+                    handleImageClick(
+                      "https://emoyer.com/wp-content/uploads/2023/01/bees-library-honey.jpg",
+                    )
+                  }
+                />
+              </div>
             </div>
-          </div>
+          )}
         </div>
         {isLoading && (
           <div
