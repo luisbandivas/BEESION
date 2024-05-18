@@ -10,11 +10,10 @@ const Heero = () => {
       <div className="flex justify-center px-8 py-5">
         <img src={rct} />
       </div>
-      <div className="px-5 mb-5">
+      <div className="px-4 lg:px-16 mb-5">
         <div
           className="bg-cover mb-4 w-full h-[300px]
-                     md:h-[400px]
-                     lg:h-[460px]"
+                     lg:h-[400px] lg:mb-6"
         >
           <img
             src={land}
@@ -28,9 +27,9 @@ const Heero = () => {
         >
           <img
             src={img1}
-            className="object-cover h-full w-1/3 mr-4 rounded-xl shadow-md"
+            className="object-cover h-full w-1/3 mr-4 rounded-xl shadow-md lg:mr-6"
           />
-          <div className="h-full w-1/3 mr-4 flex flex-col justify-between items-center">
+          <div className="h-full w-1/3 mr-4 flex flex-col justify-between items-center lg:mr-6">
             <h1 className="mb-2">Final Project</h1>
             <img
               src={img1}
@@ -50,4 +49,4 @@ const Heero = () => {
   );
 };
 
-export default Hero;
+export default Heero;

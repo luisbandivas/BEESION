@@ -172,14 +172,14 @@ const FOTD = () => {
         >
           <div>
             <label className="flex flex-row justify-between text-white">
-              <h1 className="text-lg">Fact Of The Day</h1>
+              <h1 className="text-xl">Fact Of The Day</h1>
               <p className="text-sm">{DateToday}</p>
             </label>
           </div>
           <div>
             <label className="text-white">
-              <h1 className="text-2xl mb-2">{word}</h1>
-              <p className="whitespace-pre-wrap">{wit}</p>
+              <h1 className="text-3xl mb-2">{word}</h1>
+              <p className="whitespace-pre-wrap text-sm w-full">{wit}</p>
             </label>
             <div className="flex justify-end mt-2">
               <button
@@ -196,8 +196,10 @@ const FOTD = () => {
           className="bg-cover w-full h-full rounded-xl shadow-inner p-4"
           style={{ backgroundImage: `url(${imageSrc})` }}
         >
-          <div className="h-[470px] overflow-auto">
-            <p className="whitespace-pre-wrap auto w-full">{response}</p>
+          <div className="h-[470px] overflow-auto bg-black rounded-md p-1 bg-opacity-20">
+            <p className="whitespace-pre-wrap auto w-full text-white">
+              {response}
+            </p>
           </div>
           <button
             className="py-2 bg-orange-300 px-6 mt-4 rounded-full text-sm font-semibold"

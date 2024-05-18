@@ -16,7 +16,7 @@ const Info = () => {
         <div
           className="w-full h-auto mb-12 text-center
                        lg:text-left
-                       xl:w-2/3 mr-5"
+                       xl:w-2/3"
         >
           <h1 className="text-[3rem] font-light font-Shrikhand">
             Efficient. Accurate. Essential: Your Pest Identification Solution
