@@ -116,7 +116,7 @@ const Upload = () => {
   return (
     <>
       <div
-        className="sm:px-5 sm:flex sm:justify-center sm:items-center sm:flex-col
+        className="sm:px-5 sm:flex sm:justify-center sm:items-center sm:flex-col mt-20
                    py-16 bg-[#8D9876]
                    lg:flex-row lg:items-start lg:px-8"
       >

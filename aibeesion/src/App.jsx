@@ -2,6 +2,7 @@ import { useState } from "react";
 import Hero from "./components/Hero";
 import Infopage from "./pages/Info";
 import Upload from "./pages/Upload";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <Hero />
       <Infopage />
       <Upload />
+      <Footer />
     </div>
   );
 }

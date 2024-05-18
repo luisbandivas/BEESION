@@ -161,50 +161,46 @@ const FOTD = () => {
     setShowFirst(true);
   };
 
+  const DateToday = new Date().toDateString();
+
   return (
     <>
       {showFirst ? (
-        <div className="px-4">
-          <img
-            src={imageSrc}
-            alt={word}
-            className="shadow-xl w-full bg-white h-[300px] rounded-xl mb-4 md:h-52 lg:h-[250px] xl:h-[300px]"
-          />
-
-          <label>
-            <h2 className="font-semibold text-xl mb-2">{word}</h2>
-            <p
-              className="whitespace-pre-wrap h-16
-                         md:h-40
-                         lg:h-28
-                         xl:h-16"
-            >
-              {wit}
-            </p>
-          </label>
+        <div
+          className="bg-cover w-full h-full rounded-xl px-6 py-4 flex flex-col justify-between"
+          style={{ backgroundImage: `url(${imageSrc})` }}
+        >
+          <div>
+            <label className="flex flex-row justify-between text-white">
+              <h1 className="text-lg">Fact Of The Day</h1>
+              <p className="text-sm">{DateToday}</p>
+            </label>
+          </div>
+          <div>
+            <label className="text-white">
+              <h1 className="text-2xl mb-2">{word}</h1>
+              <p className="whitespace-pre-wrap">{wit}</p>
+            </label>
+            <div className="flex justify-end mt-2">
+              <button
+                className="py-2 bg-orange-300 px-6 rounded-full text-sm font-semibold"
+                onClick={handleLearnMoreClick}
+              >
+                LEARN MORE
+              </button>
+            </div>
+          </div>
         </div>
       ) : (
         <div
-          className="w-full h-[415px] shadow-inner rounded-lg overflow-auto p-4
-                     md:h-[405px]
-                     xl:mt-4 xl:mb-2"
+          className="bg-cover w-full h-full rounded-xl shadow-inner p-4"
+          style={{ backgroundImage: `url(${imageSrc})` }}
         >
-          <p className="whitespace-pre-wrap auto w-full">{response}</p>
-        </div>
-      )}
-      {showFirst ? (
-        <div className="h-14 relative xl:mt-2">
+          <div className="h-[470px] overflow-auto">
+            <p className="whitespace-pre-wrap auto w-full">{response}</p>
+          </div>
           <button
-            className="py-2 bg-orange-300 px-6 absolute bottom-0 right-0 mb-5 rounded-full text-sm font-semibold"
-            onClick={handleLearnMoreClick}
-          >
-            LEARN MORE
-          </button>
-        </div>
-      ) : (
-        <div className="h-16 relative md:h-16 lg:h-16">
-          <button
-            className="py-2 bg-orange-300 px-6 absolute bottom-0 left-0 mb-3 rounded-full text-sm font-semibold"
+            className="py-2 bg-orange-300 px-6 mt-4 rounded-full text-sm font-semibold"
             onClick={handleGoBackClick}
           >
             GO BACK
