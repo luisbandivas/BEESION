@@ -1,4 +1,5 @@
 import React from "react";
+import Marquee from "react-fast-marquee";
 import rct from "../assets/react.svg";
 import grassland from "../assets/home_img/grassland.png";
 import slug from "../assets/fotd_img/slug.png";
@@ -41,6 +42,9 @@ const Heero = () => {
           />
         </div>
       </div>
+      <Marquee className="mb-16" autoFill="true" speed={15}>
+        <h1>• 10K+ OF DATA TO TRAIN THE MODEL&nbsp;</h1>
+      </Marquee>
     </div>
   );
 };

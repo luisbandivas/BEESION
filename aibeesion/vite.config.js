@@ -6,7 +6,11 @@ export default defineConfig({
   plugins: [react()],
   build: {
     rollupOptions: {
-      external: ["react-loader-spinner", "@google/generative-ai"],
+      external: [
+        "react-fast-marquee",
+        "react-loader-spinner",
+        "@google/generative-ai",
+      ],
     },
   },
 });
