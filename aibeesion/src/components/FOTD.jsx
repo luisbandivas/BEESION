@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ants from "../assets/fotd_img/ants.png";
 import aphids from "../assets/fotd_img/aphids.png";
-import beetles from "../assets/fotd_img/beetles.png";
+import beetles from "../assets/fotd_img/beatles.png";
 import bees from "../assets/fotd_img/bees.png";
 import caterpillar from "../assets/fotd_img/caterpillar.png";
 import earthworm from "../assets/fotd_img/earthworm.png";
@@ -45,8 +45,8 @@ const FOTD = () => {
       "Bees",
       "Beetle",
       "Catterpillar",
-      "Earthworms",
       "Earwig",
+      "Earthworms",
       "Grasshopper",
       "Mealybug",
       "Moth",
@@ -183,7 +183,7 @@ const FOTD = () => {
             </label>
             <div className="flex justify-end mt-2">
               <button
-                className="py-2 bg-orange-300 px-6 rounded-full text-sm font-semibold"
+                className="py-2 bg-orange-300 hover:bg-opacity-80 px-6 rounded-full text-sm font-semibold"
                 onClick={handleLearnMoreClick}
               >
                 LEARN MORE
@@ -202,7 +202,7 @@ const FOTD = () => {
             </p>
           </div>
           <button
-            className="py-2 bg-orange-300 px-6 mt-4 rounded-full text-sm font-semibold"
+            className="py-2 bg-orange-300 hover:bg-opacity-80 px-6 mt-4 rounded-full text-sm font-semibold"
             onClick={handleGoBackClick}
           >
             GO BACK

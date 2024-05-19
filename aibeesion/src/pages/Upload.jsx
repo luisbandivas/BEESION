@@ -231,7 +231,7 @@ const Upload = () => {
               <div className="flex flex-row justify-center">
                 <img
                   src="https://emoyer.com/wp-content/uploads/2023/01/ants-library.jpg"
-                  className="h-16 w-16 rounded-xl cursor-pointer ml-2"
+                  className="h-16 w-16 rounded-xl cursor-pointer ml-2 hover:-translate-y-1 transform transition duration-300 ease-in-out"
                   onClick={() =>
                     handleImageClick(
                       "https://emoyer.com/wp-content/uploads/2023/01/ants-library.jpg",
@@ -240,7 +240,7 @@ const Upload = () => {
                 />
                 <img
                   src="https://emoyer.com/wp-content/uploads/2022/11/moyer-Full-Truth-About-Earwigs-Crawling-hero.jpg"
-                  className="h-16 w-16 rounded-xl cursor-pointer ml-2"
+                  className="h-16 w-16 rounded-xl cursor-pointer ml-2 hover:-translate-y-1 transform transition duration-300 ease-in-out"
                   onClick={() =>
                     handleImageClick(
                       "https://emoyer.com/wp-content/uploads/2022/11/moyer-Full-Truth-About-Earwigs-Crawling-hero.jpg",
@@ -249,7 +249,7 @@ const Upload = () => {
                 />
                 <img
                   src="https://emoyer.com/wp-content/uploads/2023/01/mice-library.jpg"
-                  className="h-16 w-16 rounded-xl cursor-pointer ml-2"
+                  className="h-16 w-16 rounded-xl cursor-pointer ml-2 hover:-translate-y-1 transform transition duration-300 ease-in-out"
                   onClick={() =>
                     handleImageClick(
                       "https://emoyer.com/wp-content/uploads/2023/01/mice-library.jpg",
@@ -258,7 +258,7 @@ const Upload = () => {
                 />
                 <img
                   src="https://emoyer.com/wp-content/uploads/2023/01/bees-library-honey.jpg"
-                  className="h-16 w-16 rounded-xl cursor-pointer ml-2"
+                  className="h-16 w-16 rounded-xl cursor-pointer ml-2 hover:-translate-y-1 transform transition duration-300 ease-in-out"
                   onClick={() =>
                     handleImageClick(
                       "https://emoyer.com/wp-content/uploads/2023/01/bees-library-honey.jpg",

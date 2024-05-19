@@ -1,8 +1,10 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
 import rct from "../assets/react.svg";
-import land from "../assets/land.jpg";
-import img1 from "../assets/fotd_img/slug.png";
+import grassland from "../assets/home_img/grassland.png";
+import slug from "../assets/fotd_img/slug.png";
+import weevil from "../assets/home_img/weevil.png";
+import grasshopper from "../assets/home_img/grasshopper.png";
 
 const Heero = () => {
   return (
@@ -12,13 +14,11 @@ const Heero = () => {
       </div>
       <div className="px-4 lg:px-16 mb-5">
         <div
-          className="bg-cover mb-4 w-full h-[300px]
+          className="bg-cover mb-4 w-full h-[300px] rounded-xl shadow-md flex justify-center items-center
                      lg:h-[400px] lg:mb-6"
+          style={{ backgroundImage: `url(${grassland})` }}
         >
-          <img
-            src={land}
-            className="object-cover w-full h-full rounded-xl shadow-md"
-          />
+          <h1>what the fuck</h1>
         </div>
         <div
           className="w-full flex justify-between 
@@ -26,18 +26,18 @@ const Heero = () => {
                      lg:h-[320px]"
         >
           <img
-            src={img1}
+            src={weevil}
             className="object-cover h-full w-1/3 mr-4 rounded-xl shadow-md lg:mr-6"
           />
           <div className="h-full w-1/3 mr-4 flex flex-col justify-between items-center lg:mr-6">
-            <h1 className="mb-2">Final Project</h1>
+            <h1 className="mb-3 font-Coiny">Final Project</h1>
             <img
-              src={img1}
-              className="object-cover md:h-72 w-full rounded-xl shadow-md"
+              src={slug}
+              className="object-fill h-36 w-full rounded-xl shadow-md md:h-52 lg:h-72"
             />
           </div>
           <img
-            src={img1}
+            src={grasshopper}
             className="object-cover h-full w-1/3 rounded-xl shadow-md"
           />
         </div>

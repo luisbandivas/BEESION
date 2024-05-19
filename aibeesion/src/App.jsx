@@ -6,7 +6,7 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="bg-[#fffbf4] text-[#212529] font-Poppins">
+    <div className="bg-[#FBF9F1] text-[#212529] font-Poppins">
       <Hero />
       <Infopage />
       <Upload />
