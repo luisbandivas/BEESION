@@ -1,4 +1,3 @@
-import re
 from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
@@ -7,6 +6,7 @@ from io import BytesIO
 from PIL import Image
 import tensorflow as tf
 import google.generativeai as genai
+import tensorflow as tf
 
 genai.configure(api_key="AIzaSyA41OEWAvMFIi-h3jAn_h7jKOSuSBiBuHc")
 
@@ -51,7 +51,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-MODEL = tf.keras.models.load_model("./save_model/model_v2.keras")
+MODEL = tf.keras.models.load_model("./save_model/7.keras")
 
 
 CLASS_NAMES = ['Ants','Aphids','Bees','Beetle','Catterpillar','Earthworms','Earwig','Grasshopper','Mealybug','Moth','Rats','Slug','Snail','Wasp','Weevil']
@@ -69,7 +69,8 @@ async def predict(
     file: UploadFile = File(...)
 ):
     image = read_file_as_image(await file.read())
-    img_batch = np.expand_dims(image, 0)
+    resized_image = tf.image.resize(image, (224, 224))
+    img_batch = np.expand_dims(resized_image, 0)
 
     predictions = MODEL.predict(img_batch)
 
