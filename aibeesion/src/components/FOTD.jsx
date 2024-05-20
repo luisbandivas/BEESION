@@ -62,6 +62,7 @@ const FOTD = () => {
       Bees: bees,
       Beetle: beetles,
       Catterpillar: caterpillar,
+      Slug: slug,
       Earthworms: earthworm,
       Earwig: earwig,
       Grasshopper: grasshopper,

@@ -1,6 +1,6 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
-import rct from "../assets/react.svg";
+import rct from "../assets/debug.svg";
 import grassland from "../assets/home_img/grassland.png";
 import slug from "../assets/fotd_img/slug.png";
 import weevil from "../assets/home_img/weevil.png";
@@ -9,16 +9,20 @@ import grasshopper from "../assets/home_img/grasshopper.png";
 const Heero = () => {
   return (
     <div>
-      <div className="flex justify-center px-8 py-5">
-        <img src={rct} />
+      <div className="flex justify-center items-center px-8 py-2">
+        <img src={rct} className="h-14" />
+        <h1 className="font-Coiny text-2xl">Debug</h1>
       </div>
       <div className="px-4 lg:px-16 mb-5">
         <div
-          className="bg-cover mb-4 w-full h-[300px] rounded-xl shadow-md flex justify-center items-center
+          className="bg-cover mb-4 w-full h-[300px] rounded-xl shadow-md flex flex-col justify-center items-center
                      lg:h-[400px] lg:mb-6"
           style={{ backgroundImage: `url(${grassland})` }}
         >
-          <h1>what the fuck</h1>
+          <h1 className="text-6xl  font-Coiny">PEST FREE</h1>
+          <h2 className="text-xl  font-light">
+            Informed Harvests: Identifying Pests, Optimizing Growth.
+          </h2>
         </div>
         <div
           className="w-full flex justify-between 

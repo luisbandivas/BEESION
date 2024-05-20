@@ -10,7 +10,6 @@ function App() {
       <Hero />
       <Infopage />
       <Upload />
-      <Footer />
     </div>
   );
 }
