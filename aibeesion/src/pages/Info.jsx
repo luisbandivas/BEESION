@@ -10,7 +10,7 @@ const Info = () => {
                  md:px-8"
     >
       <div
-        className="flex pt-20 pb-24 flex-col
+        className="flex py-32 flex-col
                      lg:flex-row"
       >
         <div
