@@ -26,8 +26,8 @@ const FOTD = () => {
   const [imageSrc, setImageSrc] = useState("");
   const [chatSession, setChatSession] = useState(null);
   const [response, setResponse] = useState("");
-  const [wit, setWit] = useState("");
   const [showFirst, setShowFirst] = useState(true);
+  const [wit, setWit] = useState("");
 
   useEffect(() => {
     const getTodayDate = () => {
