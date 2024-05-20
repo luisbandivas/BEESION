@@ -69,7 +69,6 @@ const FOTD = () => {
       Mealybug: mealybugs,
       Moth: moth,
       Rats: rat,
-      Slug: slug,
       Snail: snail,
       Wasp: wasp,
       Weevil: weevil,
