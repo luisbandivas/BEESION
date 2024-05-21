@@ -24,21 +24,21 @@ const Heero = () => {
           </h2>
         </div>
         <div
-          className="w-full flex justify-between 
+          className="w-full h-36 flex justify-between
                      md:h-[250px]
                      lg:h-[320px]"
         >
           <img
             src={weevil}
-            className="object-cover h-full w-1/3 mr-4 rounded-md shadow-md lg:mr-6"
+            className="object-fill h-full w-1/3 mr-4 rounded-md shadow-md "
           />
           <img
             src={slug}
-            className="object-cover h-full w-1/3 mr-4 rounded-md shadow-md lg:mr-6"
+            className="object-fill h-full w-1/3 mr-4 rounded-md shadow-md "
           />
           <img
             src={grasshopper}
-            className="object-cover h-full w-1/3 rounded-md shadow-md"
+            className="object-fill h-full w-1/3 rounded-md shadow-md"
           />
         </div>
       </div>

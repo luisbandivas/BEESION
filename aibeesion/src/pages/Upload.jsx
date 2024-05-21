@@ -330,18 +330,15 @@ const Upload = () => {
                      lg:flex-col lg:h-[550px] lg:mt-0
                      xl:h-[560px]"
           >
-            <div
-              className="flex-1
-                       lg:flex lg:flex-row"
-            >
+            <div className="mr-5 lg:flex lg:flex-row">
               <img
                 src={prediction ? URL.createObjectURL(file) : ""}
-                className="w-[200px] h-[220px] mb-3 rounded-xl"
+                className="w-[200px] h-[200px] rounded-xl shadow-md"
               />
-              <div>
+              <div className="flex flex-col justify-between">
                 {prediction && (
                   <p
-                    className="flex flex-col font-medium text-[1.2rem]
+                    className="flex flex-col font-black text-[1.2rem]
                            lg:ml-4"
                   >
                     <span>Class: {prediction.class}</span>
@@ -350,8 +347,8 @@ const Upload = () => {
                     </span>
                   </p>
                 )}
-                <div className="flex flex-col mt-4 lg:ml-4">
-                  <h2>Try our tts</h2>
+                <div className="flex flex-col lg:ml-4">
+                  <h2>Read Aloud</h2>
                   <div className="flex flex-row mt-2">
                     <button
                       className={`p-3 rounded-full ${isPlaying ? "bg-blue-300" : "bg-green-300"}`}
@@ -375,11 +372,12 @@ const Upload = () => {
                 </div>
               </div>
             </div>
-            <div className="border rounded-xl p-2 flex-1 max-h-[330px] overflow-auto">
+            <div className="border rounded-xl p-2 mt-4 flex-1 max-h-[400px] overflow-auto">
               {prediction && (
                 <div>
                   <h2 className="text-lg font-semibold mb-2">
-                    {prediction.class} Pest Removal Tips for Farms
+                    Effective Strategies for Managing &nbsp;
+                    {prediction.class} Infestations on Farms
                   </h2>
                   <p className="whitespace-pre-wrap">{prediction.response}</p>
                 </div>

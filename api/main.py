@@ -81,8 +81,8 @@ async def predict(
                                   generation_config=generation_config,
                                   safety_settings=safety_settings)
     convo = model.start_chat(history=[])
-    response = convo.send_message(f"Give information about {predicted_class} and how to remove it to a farm")
-    response2 = convo.send_message(f"remove pointers, number, and bullet, asterisk {response}")
+    response = convo.send_message(f"Could you provide some insights about {predicted_class}, along with effective strategies to control and prevent its infestation on a farm? (remove pointers, hashtag, and bullet, asterisk)")
+    response2 = convo.send_message(f"remove pointers, number, hashtag, and asterisk {response}")
     print(response2.text)
 
     return {
