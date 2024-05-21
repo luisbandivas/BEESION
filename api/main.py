@@ -51,7 +51,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-MODEL = tf.keras.models.load_model("./save_model/test.keras")
+MODEL = tf.keras.models.load_model("./save_model/pt2.keras")
 
 
 CLASS_NAMES = ['Ants','Aphids','Bees','Beetle','Catterpillar','Earthworms','Earwig','Grasshopper','Mealybug','Moth','Rats','Slug','Snail','Wasp','Weevil']
